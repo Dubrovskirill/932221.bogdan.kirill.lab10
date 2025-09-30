@@ -1,8 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; 
-    background-color: black; 
+    overflow: hidden;
+    background-color: black;
 }
 
 #curtain {
@@ -13,18 +13,63 @@ body {
     height: 100vh;
     background-image: url('curtain.jpg');
     background-size: cover;
-    background-position: center bottom; 
+    background-position: center bottom;
     background-repeat: no-repeat;
-    transition: transform 0.2s ease; 
-    z-index: 1000; 
+    transition: transform 0.2s ease;
+    z-index: 1000;
 }
 
 #curtain:hover {
-    transform: translateY(-5%); 
+    transform: translateY(-5%);
 }
 
-
 #curtain.lifted {
-    transform: translateY(-100vh); 
-    transition: transform 1s ease; 
+    transform: translateY(-100vh);
+    transition: transform 1s ease;
+}
+
+#lamp-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.5);
+    transform-origin: center top;
+    z-index: 100;
+}
+
+#lamp {
+    position: relative; /* Создаем контекст для детей */
+    z-index: 100;
+}
+
+.lamp-img {
+    position: relative;
+    z-index: 102;
+}
+
+#wick {
+    position: absolute;
+    top: 120px;
+    left: 43.5%;
+    transform: translateX(-50%);
+    z-index: 101;
+}
+
+#light {
+    position: absolute;
+    top: 45px; 
+    left: 50.1%;
+    width: 800px;
+    height: 700px;
+    background: rgba(255, 255, 0, 0.5);
+    clip-path: polygon(49% 0%, 51% 0%, 100% 100%, 0% 100%);
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+    pointer-events: none;
+}
+
+#light.active {
+    opacity: 1;
 }
