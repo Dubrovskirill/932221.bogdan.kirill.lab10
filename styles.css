@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    background-color: black; 
+}
+
+#curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('curtain.jpg');
+    background-size: cover;
+    background-position: center bottom; 
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease; 
+    z-index: 1000; 
+}
+
+#curtain:hover {
+    transform: translateY(-5%); 
+}
+
+
+#curtain.lifted {
+    transform: translateY(-100vh); 
+    transition: transform 1s ease; 
+}
