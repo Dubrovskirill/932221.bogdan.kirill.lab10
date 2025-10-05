@@ -16,7 +16,7 @@ body {
     background-position: center bottom;
     background-repeat: no-repeat;
     transition: transform 0.2s ease;
-    z-index: 1000;
+    z-index: 10;
 }
 
 #curtain:hover {
@@ -34,17 +34,17 @@ body {
     left: 50%;
     transform: translateX(-50%) scale(0.5);
     transform-origin: center top;
-    z-index: 100;
+    z-index: 9;
 }
 
 #lamp {
-    position: relative; /* Создаем контекст для детей */
-    z-index: 100;
+    position: relative;
+    z-index: 5;
 }
 
 .lamp-img {
     position: relative;
-    z-index: 102;
+    z-index: 5;
 }
 
 #wick {
@@ -52,24 +52,134 @@ body {
     top: 120px;
     left: 43.5%;
     transform: translateX(-50%);
-    z-index: 101;
+    z-index: 4;
+    transition: transform 0.1s ease;
 }
 
 #light {
     position: absolute;
-    top: 45px; 
-    left: 50.1%;
-    width: 800px;
-    height: 700px;
+    top: 142px; 
+    left: 51%;
+    width: 1600px;
+    height: 1600px;
     background: rgba(255, 255, 0, 0.5);
-    clip-path: polygon(49% 0%, 51% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(46.5% 0%, 53.5% 0%, 100% 100%, 0% 100%);
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.2s ease;
-    z-index: 50;
+    z-index: 10;
     pointer-events: none;
 }
 
 #light.active {
     opacity: 1;
+}
+
+#magic-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 800px; 
+    height: 700px; 
+    transform: translateX(-50%);
+    z-index: 6; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+#magic-container.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#hat {
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    width: 132px;
+    height: auto;
+    transform: translateX(-50%) rotate(180deg);
+    z-index: 6;
+    cursor: pointer;
+}
+
+#hat img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#wizard {
+    position: absolute;
+    bottom: -20px;
+    left: 43%;
+    width: 270px;
+    height: auto;
+    transform: translateX(-50%);
+    z-index: 6;
+}
+
+#wizard img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.animal {
+    position: absolute;
+    left: 60%;
+    width: 10%;
+    height: auto;
+    max-width: 55px; 
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+    z-index: 5;
+    cursor: pointer;
+}
+
+.animal img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#rabbit {
+    bottom: 15%;
+    transform: translateX(-50%) translateY(0);
+}
+
+#rabbit.hidden {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#bird {
+    bottom: 15%;
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+    pointer-events: none; 
+}
+
+#bird.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.animal.hidden {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.animal.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
 }
